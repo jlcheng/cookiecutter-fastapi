@@ -1,5 +1,5 @@
 run:
-	uv run fastapi dev src/{{cookiecutter.project_slug}}/server/main.py
+	uv run fastapi dev src/{{cookiecutter.project_slug}}/server/main_app.py
 
 test:
 	uv run pytest
