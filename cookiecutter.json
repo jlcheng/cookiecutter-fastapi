@@ -1,0 +1,9 @@
+{
+  "full_name": "John Cheng",
+  "email": "johnlicheng@gmail.com",
+  "github_username": "jlcheng",
+  "project_name": "FastAPI Template",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "project_short_description": "FastAPI template for a simple API.",
+  "version": "0.1.0"
+}

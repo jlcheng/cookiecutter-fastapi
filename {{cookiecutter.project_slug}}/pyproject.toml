@@ -1,0 +1,56 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "{{cookiecutter.version}}"
+authors = [
+    {name = "{{cookiecutter.full_name}}", email = "{{cookiecutter.email}}"}
+]
+description = "{{cookiecutter.project_short_description}}"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.11",
+    "pydantic>=2.10.6",
+]
+
+[tool.ruff]
+# Same as Black.
+line-length = 88
+indent-width = 4
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["F","E","W","RUF","FURB","ASYNC","B","A","C4","DTZ","INT","I","PT","RET"]
+ignore = ["B008"]
+fixable = ["ALL"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
+    "respx>=0.22.0",
+]
+tests = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
