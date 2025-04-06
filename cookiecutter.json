@@ -1,9 +1,9 @@
 {
-  "full_name": "John Cheng",
-  "email": "johnlicheng@gmail.com",
-  "github_username": "jlcheng",
-  "project_name": "FastAPI Template",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "project_short_description": "FastAPI template for a simple API.",
-  "version": "0.1.0"
+    "project_name": "jcft",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_description": "A simple FastAPI project",
+    "author_name": "John Cheng",
+    "author_email": "johnlicheng@gmail.com",
+    "python_version": "3.13.1",
+    "fastapi_version": "0.115.12"
 }

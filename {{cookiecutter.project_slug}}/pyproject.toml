@@ -1,21 +1,20 @@
 [project]
-name = "{{cookiecutter.project_slug}}"
-version = "{{cookiecutter.version}}"
+name = "{{ cookiecutter.project_slug }}"
+version = "0.1.0"
+description = "{{ cookiecutter.project_description }}"
 authors = [
-    {name = "{{cookiecutter.full_name}}", email = "{{cookiecutter.email}}"}
+    { name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}" }
 ]
-description = "{{cookiecutter.project_short_description}}"
-requires-python = ">=3.13"
+requires-python = ">={{ cookiecutter.python_version }}"
 dependencies = [
-    "fastapi[standard]>=0.115.11",
+    "fastapi[standard]>={{ cookiecutter.fastapi_version }}",
     "pydantic>=2.10.6",
 ]
 
 [tool.ruff]
-# Same as Black.
-line-length = 88
+line-length = 110
 indent-width = 4
-target-version = "py39"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["F","E","W","RUF","FURB","ASYNC","B","A","C4","DTZ","INT","I","PT","RET"]
@@ -23,34 +22,29 @@ ignore = ["B008"]
 fixable = ["ALL"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-
 [tool.ruff.format]
-# Like Black, use double quotes for strings.
 quote-style = "double"
-
-# Like Black, indent with spaces, rather than tabs.
 indent-style = "space"
-
-# Like Black, respect magic trailing commas.
 skip-magic-trailing-comma = false
-
-# Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"
 
 [dependency-groups]
 dev = [
     "mypy>=1.15.0",
     "pytest>=8.3.5",
-    "pytest-asyncio>=0.25.3",
     "respx>=0.22.0",
 ]
 tests = []
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
-asyncio_mode = "strict"
-asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "src/main.py",
+]
 
 [build-system]
 requires = ["hatchling"]
-build-backend = "hatchling.build"
+build-backend = "hatchling.build" 
